@@ -10,9 +10,9 @@ from ..lnm import lipa_na_mpesa
 
 
 class LNMCallback(CreateAPIView):
-    queryset=LNMOnlineTransaction.objects.all()
-    serializer_class=LNMOnlineSerializer
-    permission_classes =[AllowAny]
+    queryset = LNMOnlineTransaction.objects.all()
+    serializer_class = LNMOnlineSerializer
+    permission_classes = [AllowAny]
 
     def create(self, request):
         print(request.data)
