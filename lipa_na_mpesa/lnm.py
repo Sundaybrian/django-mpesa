@@ -67,7 +67,7 @@ def lipa_na_mpesa():
         "PartyA": config('PHONE_NUMBER'),
         "PartyB": config('LIPA_NA_MPESA_SHORTCODE'),
         "PhoneNumber":  config('PHONE_NUMBER'),
-        "CallBackURL": "https://fullstackdjango.com/lipa",
+        "CallBackURL": f"{os.environ.get('BASE_URL')}/api/payments/lnm/",
         "AccountReference": "sweet sweet mama bear",
         "TransactionDesc": "buymilk"
     }
