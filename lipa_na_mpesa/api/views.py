@@ -6,7 +6,8 @@ from rest_framework.generics import CreateAPIView
 
 from lipa_na_mpesa.models import LNMOnlineTransaction
 from .serializers import LNMOnlineSerializer
-from ..lnm import lipa_na_mpesa
+
+# from ..lnm import lipa_na_mpesa
 
 
 class LNMCallback(CreateAPIView):
