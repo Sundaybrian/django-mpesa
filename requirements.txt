@@ -2,6 +2,7 @@ dj-database-url==0.5.0
 Django==2.2
 django-heroku==0.3.1
 djangorestframework==3.11.1
+gunicorn==19.9.0
 importlib-metadata==1.7.0
 Markdown==3.2.2
 psycopg2==2.8.5
