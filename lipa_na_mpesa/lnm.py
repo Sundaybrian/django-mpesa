@@ -69,7 +69,7 @@ def lipa_na_mpesa():
         "PartyB": config("LIPA_NA_MPESA_SHORTCODE"),
         "PhoneNumber": config("PHONE_NUMBER"),
         "CallBackURL": "https://mpesa-maziwa.herokuapp.com/api/payments/lnm/",
-        "AccountReference": "sweet sweet mama bear",
+        "AccountReference": "123456780",
         "TransactionDesc": "buymilk",
     }
 
