@@ -58,10 +58,12 @@ class LNMCallback(CreateAPIView):
         checkout_request_id = request.data["Body"]["stkCallback"]["CheckoutRequestID"]
         result_code = request.data["Body"]["stkCallback"]["ResultCode"]
         result_desc = request.data["Body"]["stkCallback"]["ResultDesc"]
-        amount = request.data["Body"]["stkCallback"]["CallbackMetaData"]["Item"][0][
+        amount = request.data["Body"]["stkCallback"]["CallbackMetadata"]["Item"][0][
             "Value"
         ]
-        mpesa_receipt_number = ["stkCallback"]["CallbackMetaData"]["Item"][1]["Value"]
+        mpesa_receipt_number = request.data["Body"]["stkCallback"]["CallbackMetaData"][
+            "Item"
+        ][1]["Value"]
         transaction_date = request.data["Body"]["stkCallback"]["CallbackMetaData"][
             "Item"
         ][3]["Value"]
