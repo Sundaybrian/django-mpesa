@@ -53,6 +53,7 @@ class LNMCallback(CreateAPIView):
             }
         }
         """
+        print(request.data)
         merchant_request_id = request.data["Body"]["stkCallback"]["MerchantRequestID"]
         checkout_request_id = request.data["Body"]["stkCallback"]["CheckoutRequestID"]
         result_code = request.data["Body"]["stkCallback"]["ResultCode"]
@@ -85,7 +86,7 @@ class LNMCallback(CreateAPIView):
         )
 
         transaction.save()
-        print(request.data)
+        print(transaction)
 
         return Response(serializers.data, status=status.HTTP_201_CREATED)
 
