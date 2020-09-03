@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+# testing anydesk live file editing
+
 # Create your models here.
 class LNMOnlineTransaction(models.Model):
     """
