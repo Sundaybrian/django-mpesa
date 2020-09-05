@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const request = require("request");
-const app = require("../app");
 
 const format_time = () => {
   // returns formatted timestamp that safaricom accepts
@@ -45,7 +44,6 @@ const access_token = (req, res, next) => {
         console.log(error);
         res.status(500).json(error);
       } else {
-        console.log(body);
         req.access_token = JSON.parse(body).access_token;
         next();
       }
@@ -81,6 +79,7 @@ router.get("/stk", access_token, (req, res) => {
     function (error, response, body) {
       if (error) {
         console.log(error);
+        res.json(error);
       } else {
         res.status(200).json(body);
       }
