@@ -1,5 +1,5 @@
 {
-  "name": " mpesa",
+  "name": "mpesa",
   "version": "1.0.0",
   "description": " An mpesa nodejs server ",
   "main": "index.js",
