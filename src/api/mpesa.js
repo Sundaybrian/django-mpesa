@@ -126,7 +126,7 @@ router.post("/stk_callback", (req, res) => {
 
         transaction.save()
    */
-  console.log(req.data);
+  console.log(req);
   res.json("hello");
 });
 
