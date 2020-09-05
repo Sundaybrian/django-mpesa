@@ -12,6 +12,8 @@ from requests.auth import HTTPBasicAuth
 def format_time():
     """
     returns formatted timestamp that safaricom accepts
+    20200905111133
+    20200619115855
     """
     unformatted_time = datetime.now()  # 2020-06-19 11:56:43.386871
     formatted_time = unformatted_time.strftime("%Y%m%d%H%M%S")  # 20200619115855
