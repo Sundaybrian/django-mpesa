@@ -42,9 +42,10 @@ const access_token = (req, res, next) => {
     function (error, response, body) {
       if (error) {
         console.log(error);
-        res.status(500).json(error);
+        next(error);
       } else {
-        req.access_token = JSON.parse(body).access_token;
+        const resp = JSON.parse(body);
+        req.access_token = resp["access_token"];
         next();
       }
     }
@@ -52,7 +53,7 @@ const access_token = (req, res, next) => {
 };
 
 // stkpush
-router.get("/stk", access_token, (req, res) => {
+router.get("/stk", access_token, (req, res, next) => {
   const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
   const auth = "Bearer " + req.access_token;
   const formatted_time = format_time();
@@ -79,7 +80,7 @@ router.get("/stk", access_token, (req, res) => {
     function (error, response, body) {
       if (error) {
         console.log(error);
-        res.json(error);
+        next(error);
       } else {
         res.status(200).json(body);
       }
@@ -88,7 +89,46 @@ router.get("/stk", access_token, (req, res) => {
 });
 
 //lnm callback url
-// app.post("/stk_callback", (req, res) => {});
+router.post("/stk_callback", (req, res) => {
+  /**
+   * merchant_request_id = request.data["Body"]["stkCallback"]["MerchantRequestID"]
+        checkout_request_id = request.data["Body"]["stkCallback"]["CheckoutRequestID"]
+        result_code = request.data["Body"]["stkCallback"]["ResultCode"]
+        result_desc = request.data["Body"]["stkCallback"]["ResultDesc"]
+        amount = request.data["Body"]["stkCallback"]["CallbackMetadata"]["Item"][0][
+            "Value"
+        ]
+        mpesa_receipt_number = request.data["Body"]["stkCallback"]["CallbackMetaData"][
+            "Item"
+        ][1]["Value"]
+        transaction_date = request.data["Body"]["stkCallback"]["CallbackMetaData"][
+            "Item"
+        ][3]["Value"]
+        phone_number = request.data["Body"]["stkCallback"]["CallbackMetaData"]["Item"][
+            4
+        ]["Value"]
+
+        from datetime import datetime
+
+        str_transaction_date = str(transaction_date)
+        transaction_datetime = datetime.strptime(str_transaction_date, "%Y%m%d%H%M%S")
+
+        transaction = LNMOnlineTransaction.objects.create(
+            CheckoutRequestID=checkout_request_id,
+            MerchantRequestID=merchant_request_id,
+            ResultCode=result_code,
+            ResultDesc=result_desc,
+            Amount=amount,
+            MpesaReceiptNumber=mpesa_receipt_number,
+            TransactionDate=transaction_datetime,
+            PhoneNumber=phone_number,
+        )
+
+        transaction.save()
+   */
+  console.log(req.data);
+  res.json("hello");
+});
 
 router.get("/access-token", access_token, (req, res) => {
   res.json({ token: req.access_token });
