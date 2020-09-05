@@ -9,6 +9,9 @@
     "lint": "eslint --fix src",
     "test": "mocha --exit"
   },
+  "engines": {
+    "node": "12.6.0"
+  },
   "keywords": [],
   "author": "",
   "repository": {
