@@ -53,7 +53,7 @@ const access_token = (req, res, next) => {
 };
 
 // stkpush
-router.get("/stk", access_token, (req, res, next) => {
+router.post("/stk", access_token, (req, res, next) => {
   const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
   const auth = "Bearer " + req.access_token;
   const formatted_time = format_time();
