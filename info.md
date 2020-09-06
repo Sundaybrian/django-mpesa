@@ -12,4 +12,5 @@
 - [] setup mongoose
 - [] lnm schema
 - [] save lnm transaction
+- [] tests
 - [] clean up
