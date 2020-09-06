@@ -44,7 +44,9 @@ const access_token = (req, res, next) => {
         console.log(error);
         next(error);
       } else {
-        const resp = JSON.parse(response.body);
+        let data = body.replace(/\\/g, "");
+        let resp = JSON.parse(data);
+        console.log(resp, "======");
         req.access_token = resp["access_token"];
         next();
       }
