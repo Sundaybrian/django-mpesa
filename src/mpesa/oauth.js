@@ -1,10 +1,15 @@
 const axios = require("axios");
-module.exports = function (consumerKey, consumerSecret, baseUrl) {
+module.exports = function (
+  consumerKey = process.env["CONSUMER_KEY"],
+  consumerSecret = process.env["CONSUMER_SECRET"],
+  baseURL = null
+) {
   const auth = Buffer.from(consumerKey + ":" + consumerSecret).toString(
     "base64"
   );
   return axios.get(
-    baseUrl + "/oauth/v1/generate?grant_type=client_credentials",
+    (baseURL || process.env["baseURL"]) +
+      "/oauth/v1/generate?grant_type=client_credentials",
     {
       headers: {
         Authorization: "Basic " + auth,

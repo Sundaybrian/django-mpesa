@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const request = require("request");
+const access_token = require("../middleware/accessToken");
 
 const format_time = () => {
   // returns formatted timestamp that safaricom accepts
