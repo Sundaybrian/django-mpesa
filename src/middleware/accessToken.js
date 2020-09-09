@@ -1,6 +1,6 @@
-const { oAuth } = require("../mpesa");
+const { oAuth } = require("../payments");
 
-const acces_token = async (req, res, next) => {
+module.exports = async (req, res, next) => {
   try {
     const credentials = await oAuth();
     req.access_token = credentials.data["access_token"];
@@ -8,8 +8,4 @@ const acces_token = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
-
-module.exports = {
-  acces_token,
 };
