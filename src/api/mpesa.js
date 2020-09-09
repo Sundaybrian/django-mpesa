@@ -21,7 +21,7 @@ router.post("/stk", AuthToken, async (req, res, next) => {
     );
     res.status(200).json(results.data);
   } catch (error) {
-    console.log(error.response.data);
+    console.log(error.response);
     next(error);
   }
 });

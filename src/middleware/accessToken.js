@@ -6,6 +6,7 @@ module.exports = async (req, res, next) => {
     req.access_token = credentials.data["access_token"];
     next();
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
