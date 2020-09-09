@@ -30,7 +30,7 @@ module.exports = async function (
   };
 
   return axios.post(
-    process.env["baseURL"] + "/mpesa/stkpush/v1/processrequest",
+    "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
     {
       BusinessShortCode: process.env["LIPA_NA_MPESA_SHORTCODE"],
       Password: decoded_password,
