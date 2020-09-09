@@ -4,7 +4,7 @@ module.exports = function (
   consumerSecret = null,
   baseURL = null
 ) {
-  const auth = Buffer.from(
+  let auth = new Buffer.from(
     process.env["CONSUMER_KEY"] + ":" + process.env["CONSUMER_SECRET"]
   ).toString("base64");
 
@@ -13,7 +13,6 @@ module.exports = function (
     {
       headers: {
         Authorization: "Basic " + auth,
-        "content-type": "application/json",
       },
     }
   );

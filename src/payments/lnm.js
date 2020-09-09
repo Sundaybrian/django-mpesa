@@ -22,7 +22,6 @@ module.exports = async function (
       formatted_time
   ).toString("base64");
 
-  console.log(token, "==============");
   let config = {
     headers: {
       Authorization: `Bearer ${token}`,
