@@ -5,9 +5,8 @@ const AuthToken = require("../middleware/accessToken");
 const { lipaNaMpesaOnline } = require("../payments");
 
 // initializ stk push
-router.post("/stk", AuthToken, async (req, res, next) => {
+router.post("/", AuthToken, async (req, res, next) => {
   try {
-    console.log(req.access_token);
     const results = await lipaNaMpesaOnline(
       (shortCode = null),
       (passkey = null),
@@ -27,7 +26,7 @@ router.post("/stk", AuthToken, async (req, res, next) => {
 });
 
 //lnm callback url
-router.post("/stk_callback", (req, res) => {
+router.post("/callback_url", (req, res) => {
   /**
    * merchant_request_id = request.data["Body"]["stkCallback"]["MerchantRequestID"]
         checkout_request_id = request.data["Body"]["stkCallback"]["CheckoutRequestID"]

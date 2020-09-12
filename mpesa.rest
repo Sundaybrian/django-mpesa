@@ -2,4 +2,10 @@
 GET http://localhost:5000/api/v1/payments/access-token
 
 ### stk push
-POST http://localhost:5000/api/v1/payments/stk
+POST http://localhost:5000/api/v1/payments/
+
+### stk online
+POST https://mpesa-maziwa.herokuapp.com/api/v1/payments/
+
+### token online
+GET https://mpesa-maziwa.herokuapp.com/api/v1/payments/access-token
