@@ -17,3 +17,9 @@
   [] some other kind of error
 - [] tests
 - [] clean up
+
+
+## docker
+
+* sudo docker-compose up
+* sudo docker-compose down
